@@ -1,0 +1,11 @@
+/* Небольшая подстройка Starlight под сайт: акцентный цвет как на маркетинговых страницах. */
+:root {
+  --sl-color-accent-low: #d8e6ff;
+  --sl-color-accent: #1f6feb;
+  --sl-color-accent-high: #0b3d91;
+}
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #10243f;
+  --sl-color-accent: #58a6ff;
+  --sl-color-accent-high: #b6d4ff;
+}

@@ -1,0 +1,14 @@
+{
+  "model": "Xenova/multilingual-e5-small",
+  "queryPrefix": "query: ",
+  "passagePrefix": "passage: ",
+  "chunkerVersion": 2,
+  "docsHash": "a943c6747aca0f93e7447ba45dff1997b11b50b4c1b82c42db4c5cbb7ff42696",
+  "files": [
+    "backlog/decisions/decision-1 - Статический-генератор-Astro-со-Starlight-i18n-маршруты-деплой-на-Cloudflare-Pages.md",
+    "backlog/docs/doc-1 - О-проекте.md",
+    "backlog/docs/doc-2 - Деплой-на-Cloudflare-Pages-настройка-хостинга-владельцем-и-предпросмотр-веток.md"
+  ],
+  "chunks": 16,
+  "builtAt": "2026-10-22T07:10:32.676Z"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "projecthub-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public website of ProjectHub, the Agentic Development Environment",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/sync-icons.mjs",
+    "dev": "astro dev",
+    "prebuild": "node scripts/sync-icons.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "sync-icons": "node scripts/sync-icons.mjs",
+    "lint:docs": "npm --prefix .projecthub/infra run lint:docs",
+    "index-docs": "npm --prefix .projecthub/infra run index-docs"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.40.0",
+    "astro": "^6.4.8"
+  }
+}

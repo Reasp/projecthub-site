@@ -1,0 +1,90 @@
+---
+// Общий макет маркетинговых страниц: шапка с навигацией и переключателем языка, подвал. Без внешних ресурсов.
+import { t, localePath, alternatePath, type Locale } from '../i18n';
+import { LINKS, VERSION } from '../data/product';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  current: 'home' | 'download' | 'pricing' | 'compare';
+}
+
+const { locale, title, description, current } = Astro.props;
+const d = t(locale);
+const path = Astro.url.pathname;
+const alternate = alternatePath(locale, path);
+const otherLocale: Locale = locale === 'en' ? 'ru' : 'en';
+const nav: Array<{ key: Props['current'] | 'docs'; href: string; label: string }> = [
+  { key: 'home', href: localePath(locale, '/'), label: d.nav.home },
+  { key: 'download', href: localePath(locale, '/download/'), label: d.nav.download },
+  { key: 'pricing', href: localePath(locale, '/pricing/'), label: d.nav.pricing },
+  { key: 'compare', href: localePath(locale, '/compare/'), label: d.nav.compare },
+  { key: 'docs', href: localePath(locale, '/docs/'), label: d.nav.docs }
+];
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="128x128" href="/icons/icon-128.png" />
+    <link rel="alternate" hreflang={otherLocale} href={alternate} />
+    <link rel="alternate" hreflang={locale} href={path} />
+    <script is:inline>
+      // Прогрессивное улучшение: показать кнопку темы и применить сохранённый выбор. Без JS работает prefers-color-scheme.
+      document.documentElement.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={localePath(locale, '/')}>
+          <img src="/icons/icon-64.png" alt="" width="28" height="28" />
+          {d.siteName}
+        </a>
+        <nav class="nav" aria-label="Main">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={item.key === current ? 'page' : undefined}>{item.label}</a>
+          ))}
+          <a href={LINKS.sourceRepository} rel="noopener">{d.nav.github}</a>
+          <a class="lang" href={alternate} hreflang={otherLocale} lang={otherLocale} title={d.nav.switchLanguageTitle}>{d.nav.switchLanguage}</a>
+          <button class="theme" type="button" data-theme-toggle aria-label={d.nav.theme}>{d.nav.theme}</button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div>{d.footer.version}: {VERSION} · <a href={LINKS.sourceRepository} rel="noopener">{d.footer.source}</a> · {d.footer.community}</div>
+        <div>{d.footer.license}</div>
+        <div>{d.footer.noTracking}</div>
+      </div>
+    </footer>
+    <script is:inline>
+      var toggle = document.querySelector('[data-theme-toggle]');
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var root = document.documentElement;
+          var dark = root.dataset.theme === 'dark' || (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+          var next = dark ? 'light' : 'dark';
+          root.dataset.theme = next;
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+    </script>
+  </body>
+</html>

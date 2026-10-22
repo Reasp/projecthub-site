@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "edition": "open",
+  "version": "0.1.18",
+  "published": null,
+  "builds": [],
+  "note": "Placeholder: builds of the open edition are published by the releases task in the ProjectHub source (TASK-144.4). The version follows content/product/product.json."
+}

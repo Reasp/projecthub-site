@@ -1,0 +1,47 @@
+---
+import Site from '../layouts/Site.astro';
+import { t, type Locale } from '../i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const d = t(locale).compare;
+type Value = keyof typeof d.values;
+const cell = (value: string) => ({ cls: `v-${value}`, text: d.values[value as Value] ?? value });
+const columns = ['projecthub', 'orca', 'conductor', 'vibeKanban'] as const;
+---
+
+<Site locale={locale} title={d.title} description={d.description} current="compare">
+  <section class="hero">
+    <h1>{d.heading}</h1>
+    <p class="lead">{d.lead}</p>
+  </section>
+
+  <section>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>{d.columns.feature}</th>
+            {columns.map((column) => <th>{d.columns[column]}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {d.rows.map((row) => (
+            <tr>
+              <td>{row.feature}</td>
+              {columns.map((column) => {
+                const c = cell(row[column]);
+                return <td class={c.cls}>{c.text}</td>;
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <ul>{d.notes.map((note) => <li>{note}</li>)}</ul>
+    <p class="note">{d.reviewed}</p>
+  </section>
+</Site>

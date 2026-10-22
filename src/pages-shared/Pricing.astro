@@ -1,0 +1,48 @@
+---
+import Site from '../layouts/Site.astro';
+import { t, type Locale } from '../i18n';
+import { teamPriceRange } from '../data/product';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const d = t(locale).pricing;
+---
+
+<Site locale={locale} title={d.title} description={d.description} current="pricing">
+  <section class="hero">
+    <h1>{d.heading}</h1>
+    <p class="lead">{d.lead}</p>
+  </section>
+
+  <section class="plans">
+    <article class="plan">
+      <h2>{d.personal.name}</h2>
+      <div class="price">{d.free}<small>{d.mit}</small></div>
+      <span class="badge">{d.personal.status}</span>
+      <p class="note">{d.personal.audience}</p>
+      <ul>{d.personal.includes.map((item) => <li>{item}</li>)}</ul>
+      <h3>{d.personal.neverPaidTitle}</h3>
+      <ul>{d.personal.neverPaid.map((item) => <li>{item}</li>)}</ul>
+    </article>
+
+    <article class="plan">
+      <h2>{d.team.name}</h2>
+      <div class="price">{teamPriceRange()}<small>{d.perSeatMonth}</small></div>
+      <span class="badge">{d.team.status}</span>
+      <p class="note">{d.team.audience}</p>
+      <ul>{d.team.includes.map((item) => <li>{item}</li>)}</ul>
+    </article>
+
+    <article class="plan">
+      <h2>{d.enterprise.name}</h2>
+      <div class="price"><small>{d.contract}</small></div>
+      <span class="badge">{d.enterprise.status}</span>
+      <p class="note">{d.enterprise.audience}</p>
+      <ul>{d.enterprise.includes.map((item) => <li>{item}</li>)}</ul>
+    </article>
+  </section>
+
+  <section>
+    <p class="note">{d.note}</p>
+  </section>
+</Site>

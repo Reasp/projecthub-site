@@ -1,0 +1,54 @@
+---
+import Site from '../layouts/Site.astro';
+import { t, fill, type Locale } from '../i18n';
+import { RELEASES, SOURCE_CLONE, VERSION } from '../data/product';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const d = t(locale).download;
+const builds = RELEASES.builds ?? [];
+---
+
+<Site locale={locale} title={d.title} description={d.description} current="download">
+  <section class="hero">
+    <h1>{d.heading}</h1>
+    <p class="lead">{d.lead}</p>
+  </section>
+
+  <section>
+    <h2>{d.buildsTitle}</h2>
+    {builds.length === 0 ? (
+      <>
+        <p class="status">{fill(d.noBuilds, { version: VERSION })}</p>
+        <pre><code>{SOURCE_CLONE}</code></pre>
+      </>
+    ) : (
+      <>
+        {RELEASES.published && <p class="note">{d.published}: {RELEASES.published} · {RELEASES.version}</p>}
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>{d.columns.platform}</th><th>{d.columns.format}</th><th>{d.columns.file}</th><th>{d.columns.checksum}</th></tr>
+            </thead>
+            <tbody>
+              {builds.map((build) => (
+                <tr>
+                  <td>{build.platform}</td>
+                  <td>{build.format}</td>
+                  <td><a href={build.url}>{build.file}</a></td>
+                  <td><code>{build.sha256}</code></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    )}
+  </section>
+
+  <section>
+    <h2>{d.plannedTitle}</h2>
+    <ul>{d.planned.map((item) => <li>{item}</li>)}</ul>
+    <p class="note">{d.updates}</p>
+  </section>
+</Site>

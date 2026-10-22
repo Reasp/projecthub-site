@@ -1,0 +1,25 @@
+# ProjectHub template
+node_modules/
+.rag-cache/
+.env-state/
+scripts/lightrag/.venv/
+scripts/lightrag/__pycache__/
+**/__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.vscode/
+.idea/
+.claude/scheduled_tasks.lock
+.claude/worktrees/
+.env
+.env.*
+*.env
+!.env.example
+dist/
+dist-electron/
+release/
+release_tmp*/
+build/

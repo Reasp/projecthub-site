@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "docs-rag": {
+      "command": "node",
+      "args": [
+        ".projecthub/infra/scripts/rag/rag-server.mjs"
+      ]
+    },
+    "env-tools": {
+      "command": "node",
+      "args": [
+        ".projecthub/infra/scripts/env/env-server.mjs"
+      ]
+    },
+    "backlog": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "backlog.md",
+        "mcp",
+        "start"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "@playwright/mcp@0.0.82",
+        "--headless",
+        "--isolated"
+      ]
+    },
+    "projecthub": {
+      "type": "sse",
+      "url": "${PROJECTHUB_MCP_URL:-http://127.0.0.1:42042/sse}",
+      "headers": {
+        "Authorization": "Bearer ${PROJECTHUB_AGENT_TOKEN:-}"
+      }
+    }
+  }
+}
