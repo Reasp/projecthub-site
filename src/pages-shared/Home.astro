@@ -1,8 +1,10 @@
 ---
 // Главная: один компонент на обе локали, строки из словаря.
 import Site from '../layouts/Site.astro';
+import ControlRoom from '../components/ControlRoom.astro';
+import Scenarios from '../components/Scenarios.astro';
 import { t, localePath, fill, type Locale } from '../i18n';
-import { SOURCE_CLONE, VERSION, teamPriceRange } from '../data/product';
+import { LINKS, VERSION, teamPriceRange } from '../data/product';
 import shot from '../../content/product/assets/task-142-6/08-phone-hitl-1.png';
 import { Image } from 'astro:assets';
 
@@ -10,24 +12,45 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const d = t(locale);
 const p = d.pricing;
+const sup = d.support;
+
+// Иконки карточек отличий: простые линии, без внешних наборов.
+const icons = [
+  '<path d="M4 5h16M4 12h10M4 19h7"/><rect x="15" y="14" width="6" height="6" rx="1"/>',
+  '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7l3 9M16 7l-3 9"/>',
+  '<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
+  '<path d="M4 12l4 4L20 6"/><path d="M4 18h16" opacity=".4"/>',
+  '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 10h3M12 10h5" opacity=".6"/>',
+  '<path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"/><path d="M12 8v4l3 2"/>'
+];
 ---
 
 <Site locale={locale} title={d.home.title} description={d.home.description} current="home">
   <section class="hero">
-    <div class="kicker">{d.home.kicker}</div>
-    <h1>{d.home.heading}</h1>
-    <p class="lead">{d.home.lead}</p>
-    <div class="cta">
-      <a class="btn primary" href={localePath(locale, '/download/')}>{d.home.ctaDownload}</a>
-      <a class="btn" href={localePath(locale, '/docs/')}>{d.home.ctaDocs}</a>
+    <div class="hero-grid">
+      <div>
+        <span class="badge">{d.hero.badge}</span>
+        <div class="kicker">{d.home.kicker}</div>
+        <h1 class="gradient">{d.home.heading}</h1>
+        <p class="lead">{d.home.lead}</p>
+        <div class="cta">
+          <a class="btn primary" href={localePath(locale, '/download/')}>{d.home.ctaDownload}</a>
+          <a class="btn" href={localePath(locale, '/docs/')}>{d.home.ctaDocs}</a>
+        </div>
+      </div>
+      <div>
+        <ControlRoom locale={locale} />
+        <p class="illustration">{d.hero.illustration}</p>
+      </div>
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>{d.home.pointsTitle}</h2>
     <div class="grid">
-      {d.home.points.map((point) => (
+      {d.home.points.map((point, i) => (
         <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" set:html={icons[i] ?? icons[0]} /></div>
           <h3>{point.title}</h3>
           <p>{point.text}</p>
         </div>
@@ -35,34 +58,71 @@ const p = d.pricing;
     </div>
   </section>
 
-  <section>
-    <h2>{d.home.demoTitle}</h2>
-    <div class="grid">
-      <div class="placeholder">{d.home.demoPlaceholder}</div>
-      <Image src={shot} alt="ProjectHub: approval request on a phone" class="shot" widths={[480, 960]} sizes="(max-width: 640px) 100vw, 520px" />
+  <section class="reveal">
+    <h2>{d.flow.title}</h2>
+    <div class="flow">
+      {d.flow.steps.map((step) => (
+        <div class="step">
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </div>
+      ))}
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
+    <h2>{d.scenarios.title}</h2>
+    <p class="lead">{d.scenarios.lead}</p>
+    <Scenarios locale={locale} />
+  </section>
+
+  <section class="reveal">
+    <h2>{d.home.demoTitle}</h2>
+    <div class="demo-grid">
+      <div class="placeholder"><p>{d.home.demoPlaceholder}</p></div>
+      <Image src={shot} alt="ProjectHub: approval request on a phone" class="shot" widths={[480, 960]} sizes="(max-width: 640px) 100vw, 420px" />
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="stats">
+      <h2>{d.stats.title}</h2>
+      <p class="lead">{d.stats.lead}</p>
+      <div class="stats-grid">
+        {d.stats.items.map((item) => (
+          <div class="stat"><b>{item.value}</b><span>{item.label}</span></div>
+        ))}
+      </div>
+      <p class="note" style="margin: 1.2rem 0 0">{d.stats.note}</p>
+    </div>
+  </section>
+
+  <section class="reveal">
     <h2>{d.home.installTitle}</h2>
     <p>{d.home.installLead}</p>
-    <pre><code>{SOURCE_CLONE}</code></pre>
     <p class="note">{d.home.installNote}</p>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>{d.home.editionsTitle}</h2>
     <p class="lead">{d.home.editionsLead}</p>
     <div class="grid">
-      <div class="card"><h3>{p.personal.name}</h3><p>{p.free} · {p.mit}</p><p class="note">{p.personal.audience}</p></div>
-      <div class="card"><h3>{p.team.name}</h3><p>{teamPriceRange()} {p.perSeatMonth}</p><p class="note">{p.team.status}</p></div>
-      <div class="card"><h3>{p.enterprise.name}</h3><p>{p.contract}</p><p class="note">{p.enterprise.status}</p></div>
+      <div class="card"><h3>{p.personal.name}</h3><p>{p.free} · {p.mit}</p><p>{p.personal.audience}</p></div>
+      <div class="card"><h3>{p.team.name}</h3><p>{teamPriceRange()} {p.perSeatMonth}</p><p>{p.team.status}</p></div>
+      <div class="card"><h3>{p.enterprise.name}</h3><p>{p.contract}</p><p>{p.enterprise.status}</p></div>
     </div>
     <p><a href={localePath(locale, '/pricing/')}>{d.home.editionsMore}</a></p>
   </section>
 
-  <section>
+  <section class="reveal">
+    <div class="support-card">
+      <div><h2>{sup.heading}</h2><p class="lead">{sup.downloadAsk}</p></div>
+      <a class="btn primary" href={LINKS.donate ?? localePath(locale, '/support/')} rel="noopener">{sup.downloadCta}</a>
+    </div>
+  </section>
+
+  <section class="reveal">
     <h2>{d.home.statusTitle}</h2>
-    <p class="status">{fill(d.home.statusText, { version: VERSION })}</p>
+    <p class="status-box">{fill(d.home.statusText, { version: VERSION })}</p>
   </section>
 </Site>

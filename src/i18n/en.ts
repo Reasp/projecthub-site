@@ -9,8 +9,12 @@ export const en = {
     compare: 'Compare',
     docs: 'Docs',
     github: 'GitHub',
+    support: 'Support ♥',
     switchLanguage: 'Русский',
     switchLanguageTitle: 'Switch to Russian',
+    langCode: 'EN',
+    languages: { en: 'English', ru: 'Русский' },
+    languageMenu: 'Language',
     theme: 'Theme',
     themeLight: 'Light',
     themeDark: 'Dark',
@@ -21,7 +25,88 @@ export const en = {
     noTracking: 'No telemetry, no cookies, no trackers.',
     version: 'Current version',
     community: 'Community: coming soon',
-    source: 'Source code'
+    source: 'Source code',
+    support: 'Support the project',
+    sourceSoon: 'Source code: a public mirror of the open edition is coming'
+  },
+  hero: {
+    badge: 'Open source · MIT · local-first',
+    illustration: 'Illustration of the control room; the product screens are in the documentation.'
+  },
+  console: {
+    title: 'projecthub · TASK-142 · 3 agents',
+    task: 'TASK-142 · Merge queue for the team host',
+    criteria: ['Checks run on the latest main', 'Review by someone other than the author', 'Cost per task is recorded'],
+    agents: [
+      { name: 'Claude Code', branch: 'u/anna/task-142' },
+      { name: 'Codex', branch: 'u/max/task-142' },
+      { name: 'Local model · Ollama', branch: 'u/lee/task-142' }
+    ],
+    statuses: { working: 'working', awaiting: 'awaiting approval', done: 'done' },
+    approval: { title: 'Risky step: merge into main', command: 'git merge --no-ff u/anna/task-142', reject: 'Reject', approve: 'Approve' },
+    footer: 'cost per task · audit log · worktree per agent'
+  },
+  flow: {
+    title: 'How a task goes through the control room',
+    steps: [
+      { title: 'Task', text: 'A Markdown task in your repository with acceptance criteria.' },
+      { title: 'Agents in parallel', text: 'Several agents take it, each in its own worktree and branch.' },
+      { title: 'Human approval', text: 'Risky steps wait for a decision from the desktop, a phone or Telegram.' },
+      { title: 'Checks', text: 'Acceptance criteria are verified by the system on the branch.' },
+      { title: 'Merge', text: 'The accepted result is merged; cost and audit stay with the task.' }
+    ]
+  },
+  stats: {
+    title: 'Built with its own method',
+    lead: 'ProjectHub was built by AI agents working under ProjectHub: tasks, approvals, checks.',
+    items: [
+      { value: '7', label: 'weeks from the first commit' },
+      { value: '~123K', label: 'lines of TypeScript' },
+      { value: '168', label: 'tasks closed' },
+      { value: '76', label: 'architecture decisions' },
+      { value: '213', label: 'test files' }
+    ],
+    note: 'Figures from the October 2026 pitch; the codebase has grown since.'
+  },
+  scenarios: {
+    title: 'Three ways to run it',
+    lead: 'The same control room, from one laptop to a company perimeter.',
+    personal: {
+      title: 'Personal',
+      subtitle: 'One person and their agents',
+      nodes: { you: 'You', desktop: 'ProjectHub desktop', phone: 'Phone · Telegram', repo: 'Your repository', agents: ['Claude Code', 'Codex', 'Local model'], worktree: 'worktree per agent', approvals: 'approvals', audit: 'audit · cost' },
+      caption: 'Agents work in parallel in your repository; risky steps wait for your approval from the desktop or a phone. Everything stays on your machine.'
+    },
+    team: {
+      title: 'Team',
+      subtitle: 'A shared host, one set of rules',
+      nodes: { host: 'Shared host · ph-agent', members: ['Anna · owner', 'Max · member', 'Lee · member'], worktrees: 'a worktree per person', queue: 'Merge queue', checks: 'checks · review by another person', budgets: 'Budgets · SSO · audit per person', main: 'main' },
+      caption: 'Each member works in their own branch with their own agents; finished work goes through a merge queue with checks and review. Budgets, SSO and the audit log cover the whole team.'
+    },
+    enterprise: {
+      title: 'Enterprise',
+      subtitle: 'Inside the company perimeter',
+      nodes: { perimeter: 'Company perimeter · air-gapped', hosts: ['Team host A', 'Team host B'], relay: 'Own relay · push gateway', models: 'Internal models only', siem: 'SIEM · audit export', policy: 'Rules as code', sandbox: 'Sandboxes for untrusted members' },
+      caption: 'Team hosts run inside the perimeter with internal models, an own relay and push gateway; audit goes to SIEM, rules are versioned code. Planned: work starts after the first paid pilots.'
+    }
+  },
+  support: {
+    title: 'Support ProjectHub',
+    description: 'ProjectHub Personal is free under MIT. Here is how to support the project.',
+    heading: 'Support the project',
+    lead: 'The Personal edition is free, open source and will stay that way. If ProjectHub saves you hours, you can support its development.',
+    donate: 'Donate',
+    donateSoon: 'The donation link is being set up and will appear here.',
+    waysTitle: 'Other ways to help',
+    ways: [
+      'Pilot the Team edition with your team: pilots shape what gets built next.',
+      'Tell a colleague who runs AI coding agents.',
+      'Report what does not work: every report becomes a task.'
+    ],
+    whereTitle: 'What the money goes to',
+    where: 'Signed builds for macOS and Windows, installers through winget and Homebrew, app store publication of the mobile client, and the documentation.',
+    downloadAsk: 'ProjectHub is free. If it saves you time, consider supporting the project.',
+    downloadCta: 'Support ♥'
   },
   home: {
     title: 'ProjectHub — a control room for AI coding agents',
@@ -43,8 +128,8 @@ export const en = {
     demoTitle: 'Two-minute demo',
     demoPlaceholder: 'The demo video (task → parallel agents → approval from a phone → "done" check → merge) is being recorded. It will appear here.',
     installTitle: 'Install',
-    installLead: 'Installers for Windows, macOS and Linux and one-command installs (winget, Homebrew) are planned for the first public release. Today ProjectHub is built from source:',
-    installNote: 'Requirements: Node.js 22 and Git. See the Download page for the status of builds.',
+    installLead: 'Installers for Windows, macOS and Linux and one-command installs (winget, Homebrew) arrive with the first public release, together with a public mirror of the open-edition source code.',
+    installNote: 'See the Download page for the status of builds.',
     editionsTitle: 'Editions',
     editionsLead: 'Everything one person needs is free. Paid editions start where several people, company money or compliance requirements appear.',
     editionsMore: 'Compare editions and prices',
@@ -55,8 +140,8 @@ export const en = {
     title: 'Download ProjectHub',
     description: 'Builds of the open edition of ProjectHub for Windows, macOS, Linux and Android.',
     heading: 'Download',
-    lead: 'The open (Personal) edition is free under the MIT license. Builds are published here and in the public repository.',
-    noBuilds: 'There are no published builds yet. They will appear here with the first public release of version {version}. Until then, build ProjectHub from source:',
+    lead: 'The open (Personal) edition is free under the MIT license. Builds are published on this page.',
+    noBuilds: 'There are no published builds yet. They will appear here with the first public release of version {version}, together with a public mirror of the open-edition source code.',
     plannedTitle: 'Planned formats',
     planned: [
       'Windows: portable and NSIS installer',
@@ -150,7 +235,7 @@ export const en = {
       'Conductor and Vibe Kanban: free for a single developer. Our sources say nothing else about them, hence the dashes.',
       'ProjectHub: Personal is free (MIT); the Team layer is in pilots; a server inside the company perimeter is an Enterprise item that has not started.'
     ],
-    reviewed: 'Sources reviewed on 2026-10-16. If something here is out of date, open an issue in the repository.'
+    reviewed: 'Sources reviewed on 2026-10-16. If something here is out of date, it is corrected with the next review.'
   },
   docs: {
     title: 'Documentation',

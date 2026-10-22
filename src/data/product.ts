@@ -9,6 +9,16 @@ export interface Edition {
   status: string;
 }
 
+export interface Links {
+  /** Публичный репозиторий сайта; null — пока нет. */
+  repository: string | null;
+  /** Публичное зеркало открытой редакции; null — источник приватный, зеркала ещё нет. */
+  sourceRepository: string | null;
+  /** Ссылка для пожертвований; null — владелец ещё не задал. */
+  donate: string | null;
+  site: string;
+}
+
 export interface ReleaseBuild {
   platform: string;
   format: string;
@@ -25,10 +35,10 @@ export interface Releases {
   builds: ReleaseBuild[];
 }
 
-export const PRODUCT = product as typeof product & { editions: Edition[] };
+export const PRODUCT = product as typeof product & { editions: Edition[]; links: Links };
 export const RELEASES = releases as Releases;
 export const VERSION: string = PRODUCT.version;
-export const LINKS = PRODUCT.links;
+export const LINKS: Links = PRODUCT.links;
 
 export function edition(id: Edition['id']): Edition {
   const found = PRODUCT.editions.find((item) => item.id === id);
@@ -41,11 +51,3 @@ export function teamPriceRange(): string {
   const { price } = edition('team');
   return `$${price.min}–${price.max}`;
 }
-
-export const SOURCE_CLONE = [
-  `git clone --recurse-submodules ${LINKS.sourceRepository}.git`,
-  'cd ProjectHub',
-  'npm install',
-  'npm run pack:win   # Windows: release/win-unpacked/ProjectHub.exe',
-  'npm run pack:mac   # macOS'
-].join('\n');

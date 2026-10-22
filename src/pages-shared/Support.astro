@@ -1,0 +1,36 @@
+---
+import Site from '../layouts/Site.astro';
+import { t, localePath, type Locale } from '../i18n';
+import { LINKS } from '../data/product';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const d = t(locale).support;
+const p = t(locale).pricing;
+---
+
+<Site locale={locale} title={d.title} description={d.description} current="support">
+  <section class="hero support-hero">
+    <h1 class="gradient">{d.heading}</h1>
+    <p class="lead">{d.lead}</p>
+    <div class="cta">
+      {LINKS.donate ? (
+        <a class="btn primary" href={LINKS.donate} rel="noopener">♥ {d.donate}</a>
+      ) : (
+        <span class="btn soon">♥ {d.donate} · {d.donateSoon}</span>
+      )}
+      <a class="btn" href={localePath(locale, '/pricing/')}>{p.team.name}: {p.team.status}</a>
+    </div>
+  </section>
+
+  <section class="grid reveal">
+    <div class="card">
+      <h3>{d.whereTitle}</h3>
+      <p>{d.where}</p>
+    </div>
+    <div class="card">
+      <h3>{d.waysTitle}</h3>
+      <ul>{d.ways.map((way) => <li>{way}</li>)}</ul>
+    </div>
+  </section>
+</Site>

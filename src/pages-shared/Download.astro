@@ -1,11 +1,12 @@
 ---
 import Site from '../layouts/Site.astro';
-import { t, fill, type Locale } from '../i18n';
-import { RELEASES, SOURCE_CLONE, VERSION } from '../data/product';
+import { t, fill, localePath, type Locale } from '../i18n';
+import { LINKS, RELEASES, VERSION } from '../data/product';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const d = t(locale).download;
+const sup = t(locale).support;
 const builds = RELEASES.builds ?? [];
 ---
 
@@ -19,8 +20,7 @@ const builds = RELEASES.builds ?? [];
     <h2>{d.buildsTitle}</h2>
     {builds.length === 0 ? (
       <>
-        <p class="status">{fill(d.noBuilds, { version: VERSION })}</p>
-        <pre><code>{SOURCE_CLONE}</code></pre>
+        <p class="status-box">{fill(d.noBuilds, { version: VERSION })}</p>
       </>
     ) : (
       <>
@@ -44,6 +44,13 @@ const builds = RELEASES.builds ?? [];
         </div>
       </>
     )}
+  </section>
+
+  <section class="reveal">
+    <div class="support-card">
+      <div><h2>{sup.heading}</h2><p class="lead">{sup.downloadAsk}</p></div>
+      <a class="btn primary" href={LINKS.donate ?? localePath(locale, '/support/')} rel="noopener">{sup.downloadCta}</a>
+    </div>
   </section>
 
   <section>

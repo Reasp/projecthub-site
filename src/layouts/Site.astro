@@ -1,6 +1,6 @@
 ---
 // Общий макет маркетинговых страниц: шапка с навигацией и переключателем языка, подвал. Без внешних ресурсов.
-import { t, localePath, alternatePath, type Locale } from '../i18n';
+import { t, localePath, alternatePath, LOCALES, type Locale } from '../i18n';
 import { LINKS, VERSION } from '../data/product';
 import '../styles/global.css';
 
@@ -8,7 +8,7 @@ interface Props {
   locale: Locale;
   title: string;
   description: string;
-  current: 'home' | 'download' | 'pricing' | 'compare';
+  current: 'home' | 'download' | 'pricing' | 'compare' | 'support';
 }
 
 const { locale, title, description, current } = Astro.props;
@@ -21,7 +21,8 @@ const nav: Array<{ key: Props['current'] | 'docs'; href: string; label: string }
   { key: 'download', href: localePath(locale, '/download/'), label: d.nav.download },
   { key: 'pricing', href: localePath(locale, '/pricing/'), label: d.nav.pricing },
   { key: 'compare', href: localePath(locale, '/compare/'), label: d.nav.compare },
-  { key: 'docs', href: localePath(locale, '/docs/'), label: d.nav.docs }
+  { key: 'docs', href: localePath(locale, '/docs/'), label: d.nav.docs },
+  { key: 'support', href: localePath(locale, '/support/'), label: d.nav.support }
 ];
 ---
 
@@ -56,8 +57,15 @@ const nav: Array<{ key: Props['current'] | 'docs'; href: string; label: string }
           {nav.map((item) => (
             <a href={item.href} aria-current={item.key === current ? 'page' : undefined}>{item.label}</a>
           ))}
-          <a href={LINKS.sourceRepository} rel="noopener">{d.nav.github}</a>
-          <a class="lang" href={alternate} hreflang={otherLocale} lang={otherLocale} title={d.nav.switchLanguageTitle}>{d.nav.switchLanguage}</a>
+          {LINKS.sourceRepository && <a href={LINKS.sourceRepository} rel="noopener">{d.nav.github}</a>}
+          <details class="lang">
+            <summary aria-label={d.nav.languageMenu}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>{d.nav.langCode}<i class="caret"></i></summary>
+            <ul class="lang-menu">
+              {LOCALES.map((code) => (
+                <li><a href={code === locale ? path : alternate} hreflang={code} lang={code} aria-current={code === locale ? 'true' : undefined}>{d.nav.languages[code]}</a></li>
+              ))}
+            </ul>
+          </details>
           <button class="theme" type="button" data-theme-toggle aria-label={d.nav.theme}>{d.nav.theme}</button>
         </nav>
       </div>
@@ -69,7 +77,7 @@ const nav: Array<{ key: Props['current'] | 'docs'; href: string; label: string }
     </main>
     <footer class="site-footer">
       <div class="wrap">
-        <div>{d.footer.version}: {VERSION} · <a href={LINKS.sourceRepository} rel="noopener">{d.footer.source}</a> · {d.footer.community}</div>
+        <div>{d.footer.version}: {VERSION} · {LINKS.sourceRepository ? <a href={LINKS.sourceRepository} rel="noopener">{d.footer.source}</a> : d.footer.sourceSoon} · {d.footer.community} · <a href={localePath(locale, '/support/')}>{d.footer.support}</a></div>
         <div>{d.footer.license}</div>
         <div>{d.footer.noTracking}</div>
       </div>

@@ -2,7 +2,7 @@
   "schema": 1,
   "name": "ProjectHub",
   "tagline": "Agentic Development Environment: a control room for AI coding agents",
-  "version": "0.1.18",
+  "version": "0.1.20",
   "languages": [
     "en",
     "ru"
@@ -43,8 +43,9 @@
     }
   ],
   "links": {
-    "repository": "https://github.com/Reasp/projecthub-site",
-    "sourceRepository": "https://github.com/Reasp/ProjectHub",
+    "repository": null,
+    "sourceRepository": null,
+    "donate": null,
     "site": "https://projecthub.example"
   },
   "files": [

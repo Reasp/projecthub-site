@@ -1,0 +1,44 @@
+---
+// Анимированная иллюстрация пульта: задача, три агента, одобрение рискованного шага. Чистый CSS (global.css).
+import { t, type Locale } from '../i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const c = t(locale).console;
+const statuses = [
+  ['s-working', c.statuses.working],
+  ['s-awaiting', c.statuses.awaiting],
+  ['s-done', c.statuses.done]
+] as const;
+---
+
+<div class="console" aria-hidden="true">
+  <div class="console-bar"><i></i><i></i><i></i><span>{c.title}</span></div>
+  <div class="console-body">
+    <div class="console-task">
+      <strong>{c.task}</strong>
+      <ul>{c.criteria.map((item) => <li>{item}</li>)}</ul>
+    </div>
+    <div class="agents">
+      {c.agents.map((agent) => (
+        <div class="agent">
+          <span class="dot"></span>
+          <div class="meta">
+            <b>{agent.name}</b>
+            <small>{agent.branch}</small>
+            <div class="bar"><i></i></div>
+          </div>
+          <span class="status">
+            {statuses.map(([cls, label]) => <span class={cls}>{label}</span>)}
+          </span>
+        </div>
+      ))}
+    </div>
+    <div class="approval">
+      <strong>{c.approval.title}</strong>
+      <code>{c.approval.command}</code>
+      <div class="btns"><span>{c.approval.reject}</span><span class="ok">{c.approval.approve}</span></div>
+    </div>
+  </div>
+  <div class="console-foot">{c.footer}</div>
+</div>

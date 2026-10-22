@@ -32,7 +32,8 @@ export default defineConfig({
       disable404Route: false,
       // Логотип и ссылка «домой» ведут на сайт, а не на корень документации.
       logo: { src: './content/product/assets/icon-64.png', alt: 'ProjectHub' },
-      social: [{ icon: 'github', label: 'GitHub', href: product.links.sourceRepository }],
+      // Ссылка на исходники появится вместе с публичным зеркалом (links.sourceRepository в product.json).
+      social: product.links.sourceRepository ? [{ icon: 'github', label: 'GitHub', href: product.links.sourceRepository }] : [],
       sidebar: DOCS_SECTIONS.map((section) => ({ label: section.label, slug: section.slug, translations: { ru: section.ru } })),
       // Поиск Pagefind работает только с JavaScript; без него страницы читаются как есть.
       pagefind: true
