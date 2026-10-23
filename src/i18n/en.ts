@@ -9,7 +9,7 @@ export const en = {
     compare: 'Compare',
     docs: 'Docs',
     github: 'GitHub',
-    support: 'Support ♥',
+    support: 'Donate ♥',
     switchLanguage: 'Русский',
     switchLanguageTitle: 'Switch to Russian',
     langCode: 'EN',
@@ -26,7 +26,8 @@ export const en = {
     version: 'Current version',
     community: 'Community: coming soon',
     source: 'Source code',
-    support: 'Support the project',
+    releases: 'Releases',
+    support: 'Donate',
     sourceSoon: 'Source code: a public mirror of the open edition is coming'
   },
   hero: {
@@ -91,9 +92,9 @@ export const en = {
     }
   },
   support: {
-    title: 'Support ProjectHub',
-    description: 'ProjectHub Personal is free under MIT. Here is how to support the project.',
-    heading: 'Support the project',
+    title: 'Donate to ProjectHub',
+    description: 'ProjectHub Personal is free under MIT. Donate to support its development.',
+    heading: 'Donate to ProjectHub',
     lead: 'The Personal edition is free, open source and will stay that way. If ProjectHub saves you hours, you can support its development.',
     donate: 'Donate',
     donateSoon: 'The donation link is being set up and will appear here.',
@@ -105,8 +106,8 @@ export const en = {
     ],
     whereTitle: 'What the money goes to',
     where: 'Signed builds for macOS and Windows, installers through winget and Homebrew, app store publication of the mobile client, and the documentation.',
-    downloadAsk: 'ProjectHub is free. If it saves you time, consider supporting the project.',
-    downloadCta: 'Support ♥'
+    downloadAsk: 'ProjectHub is free. If it saves you time, consider a donation.',
+    downloadCta: 'Donate ♥'
   },
   home: {
     title: 'ProjectHub — a control room for AI coding agents',
@@ -128,7 +129,7 @@ export const en = {
     demoTitle: 'Two-minute demo',
     demoPlaceholder: 'The demo video (task → parallel agents → approval from a phone → "done" check → merge) is being recorded. It will appear here.',
     installTitle: 'Install',
-    installLead: 'Installers for Windows, macOS and Linux and one-command installs (winget, Homebrew) arrive with the first public release. The source code of the open edition is already public, and its README explains how to build it.',
+    installLead: 'Installers for Windows, macOS and Linux are published on the releases page of the public repository. Builds are not signed yet, so macOS and Windows show a warning on first launch. One-command installs (winget, Homebrew) come later.',
     installNote: 'See the Download page for the status of builds.',
     editionsTitle: 'Editions',
     editionsLead: 'Everything one person needs is free. Paid editions start where several people, company money or compliance requirements appear.',
@@ -140,8 +141,8 @@ export const en = {
     title: 'Download ProjectHub',
     description: 'Builds of the open edition of ProjectHub for Windows, macOS, Linux and Android.',
     heading: 'Download',
-    lead: 'The open (Personal) edition is free under the MIT license. Builds are published on this page.',
-    noBuilds: 'There are no published builds yet. They will appear here with the first public release of version {version}. Until then, the open edition can be built from its public source code.',
+    lead: 'The open (Personal) edition is free under the MIT license. Installers are published on the releases page of the public repository.',
+    noBuilds: 'Builds of the open edition are published on the releases page of the public repository: Windows installer and portable, macOS dmg, Linux AppImage. The list on this page appears with the update channel.',
     plannedTitle: 'Planned formats',
     planned: [
       'Windows: portable and NSIS installer',
@@ -153,6 +154,7 @@ export const en = {
     columns: { platform: 'Platform', format: 'Format', file: 'File', checksum: 'SHA-256' },
     published: 'Published',
     fromSource: 'Build from source',
+    allReleases: 'All releases on GitHub',
     updates: 'The desktop app checks for updates on demand and at startup; nothing is sent besides the update request itself.'
   },
   pricing: {

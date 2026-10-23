@@ -1,14 +1,14 @@
 ---
 // Общий макет маркетинговых страниц: шапка с навигацией и переключателем языка, подвал. Без внешних ресурсов.
 import { t, localePath, alternatePath, LOCALES, type Locale } from '../i18n';
-import { LINKS, VERSION } from '../data/product';
+import { LINKS, RELEASES_URL, VERSION } from '../data/product';
 import '../styles/global.css';
 
 interface Props {
   locale: Locale;
   title: string;
   description: string;
-  current: 'home' | 'download' | 'pricing' | 'compare' | 'support';
+  current: 'home' | 'download' | 'pricing' | 'compare' | 'donate';
 }
 
 const { locale, title, description, current } = Astro.props;
@@ -22,7 +22,7 @@ const nav: Array<{ key: Props['current'] | 'docs'; href: string; label: string }
   { key: 'pricing', href: localePath(locale, '/pricing/'), label: d.nav.pricing },
   { key: 'compare', href: localePath(locale, '/compare/'), label: d.nav.compare },
   { key: 'docs', href: localePath(locale, '/docs/'), label: d.nav.docs },
-  { key: 'support', href: localePath(locale, '/support/'), label: d.nav.support }
+  { key: 'donate', href: localePath(locale, '/donate/'), label: d.nav.support }
 ];
 ---
 
@@ -77,7 +77,7 @@ const nav: Array<{ key: Props['current'] | 'docs'; href: string; label: string }
     </main>
     <footer class="site-footer">
       <div class="wrap">
-        <div>{d.footer.version}: {VERSION} · {LINKS.sourceRepository ? <a href={LINKS.sourceRepository} rel="noopener">{d.footer.source}</a> : d.footer.sourceSoon} · {d.footer.community} · <a href={localePath(locale, '/support/')}>{d.footer.support}</a></div>
+        <div>{d.footer.version}: {VERSION} · {LINKS.sourceRepository ? <a href={LINKS.sourceRepository} rel="noopener">{d.footer.source}</a> : d.footer.sourceSoon} · {RELEASES_URL && <><a href={RELEASES_URL} rel="noopener">{d.footer.releases}</a> · </>}{d.footer.community} · <a href={localePath(locale, '/donate/')}>{d.footer.support}</a></div>
         <div>{d.footer.license}</div>
         <div>{d.footer.noTracking}</div>
       </div>

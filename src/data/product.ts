@@ -39,6 +39,8 @@ export const PRODUCT = product as typeof product & { editions: Edition[]; links:
 export const RELEASES = releases as Releases;
 export const VERSION: string = PRODUCT.version;
 export const LINKS: Links = PRODUCT.links;
+/** Страница релизов публичного зеркала: установщики открытой редакции (GitHub Releases). */
+export const RELEASES_URL: string | null = LINKS.sourceRepository ? `${LINKS.sourceRepository}/releases` : null;
 
 export function edition(id: Edition['id']): Edition {
   const found = PRODUCT.editions.find((item) => item.id === id);

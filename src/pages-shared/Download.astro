@@ -1,7 +1,7 @@
 ---
 import Site from '../layouts/Site.astro';
 import { t, fill, localePath, type Locale } from '../i18n';
-import { LINKS, RELEASES, VERSION } from '../data/product';
+import { LINKS, RELEASES, RELEASES_URL, VERSION } from '../data/product';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -21,7 +21,10 @@ const builds = RELEASES.builds ?? [];
     {builds.length === 0 ? (
       <>
         <p class="status-box">{fill(d.noBuilds, { version: VERSION })}</p>
-        {LINKS.sourceRepository && <p><a class="btn" href={LINKS.sourceRepository} rel="noopener">{t(locale).footer.source} · GitHub</a></p>}
+        <div class="cta">
+          {RELEASES_URL && <a class="btn primary" href={RELEASES_URL} rel="noopener">{d.allReleases}</a>}
+          {LINKS.sourceRepository && <a class="btn" href={LINKS.sourceRepository} rel="noopener">{t(locale).footer.source} · GitHub</a>}
+        </div>
       </>
     ) : (
       <>
@@ -50,7 +53,7 @@ const builds = RELEASES.builds ?? [];
   <section class="reveal">
     <div class="support-card">
       <div><h2>{sup.heading}</h2><p class="lead">{sup.downloadAsk}</p></div>
-      <a class="btn primary" href={LINKS.donate ?? localePath(locale, '/support/')} rel="noopener">{sup.downloadCta}</a>
+      <a class="btn primary" href={LINKS.donate ?? localePath(locale, '/donate/')} rel="noopener">{sup.downloadCta}</a>
     </div>
   </section>
 

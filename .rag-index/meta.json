@@ -3,7 +3,7 @@
   "queryPrefix": "query: ",
   "passagePrefix": "passage: ",
   "chunkerVersion": 2,
-  "docsHash": "db7a2ed117d4edcd06f5c54df73e2c48fd7b73e3c8d9fc9681b789d15d810302",
+  "docsHash": "b86f8bbd8ed22fdf3601a9441292fe1492a72908073b8a430394b3856ceee588",
   "files": [
     "backlog/decisions/decision-1 - Статический-генератор-Astro-со-Starlight-i18n-маршруты-деплой-на-Cloudflare-Pages.md",
     "backlog/decisions/decision-2 - Визуальный-язык-сайта-тёмная-тема-по-умолчанию-эффекты-на-чистом-CSS-схемы-инлайн-SVG-без-внешних-ресурсов.md",
@@ -11,5 +11,5 @@
     "backlog/docs/doc-2 - Деплой-на-Cloudflare-Pages-настройка-хостинга-владельцем-и-предпросмотр-веток.md"
   ],
   "chunks": 22,
-  "builtAt": "2026-10-22T07:50:57.757Z"
+  "builtAt": "2026-10-23T11:53:11.420Z"
 }

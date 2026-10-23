@@ -4,7 +4,7 @@ import Site from '../layouts/Site.astro';
 import ControlRoom from '../components/ControlRoom.astro';
 import Scenarios from '../components/Scenarios.astro';
 import { t, localePath, fill, type Locale } from '../i18n';
-import { LINKS, VERSION, teamPriceRange } from '../data/product';
+import { LINKS, RELEASES_URL, VERSION, teamPriceRange } from '../data/product';
 import shot from '../../content/product/assets/task-142-6/08-phone-hitl-1.png';
 import { Image } from 'astro:assets';
 
@@ -100,7 +100,10 @@ const icons = [
   <section class="reveal">
     <h2>{d.home.installTitle}</h2>
     <p>{d.home.installLead}</p>
-    {LINKS.sourceRepository && <p><a class="btn" href={LINKS.sourceRepository} rel="noopener">{d.footer.source} · GitHub</a></p>}
+    <div class="cta">
+      {RELEASES_URL && <a class="btn primary" href={RELEASES_URL} rel="noopener">{d.download.allReleases}</a>}
+      {LINKS.sourceRepository && <a class="btn" href={LINKS.sourceRepository} rel="noopener">{d.footer.source} · GitHub</a>}
+    </div>
     <p class="note">{d.home.installNote}</p>
   </section>
 
@@ -118,7 +121,7 @@ const icons = [
   <section class="reveal">
     <div class="support-card">
       <div><h2>{sup.heading}</h2><p class="lead">{sup.downloadAsk}</p></div>
-      <a class="btn primary" href={LINKS.donate ?? localePath(locale, '/support/')} rel="noopener">{sup.downloadCta}</a>
+      <a class="btn primary" href={LINKS.donate ?? localePath(locale, '/donate/')} rel="noopener">{sup.downloadCta}</a>
     </div>
   </section>
 
