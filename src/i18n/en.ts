@@ -128,7 +128,7 @@ export const en = {
     demoTitle: 'Two-minute demo',
     demoPlaceholder: 'The demo video (task → parallel agents → approval from a phone → "done" check → merge) is being recorded. It will appear here.',
     installTitle: 'Install',
-    installLead: 'Installers for Windows, macOS and Linux and one-command installs (winget, Homebrew) arrive with the first public release, together with a public mirror of the open-edition source code.',
+    installLead: 'Installers for Windows, macOS and Linux and one-command installs (winget, Homebrew) arrive with the first public release. The source code of the open edition is already public, and its README explains how to build it.',
     installNote: 'See the Download page for the status of builds.',
     editionsTitle: 'Editions',
     editionsLead: 'Everything one person needs is free. Paid editions start where several people, company money or compliance requirements appear.',
@@ -141,7 +141,7 @@ export const en = {
     description: 'Builds of the open edition of ProjectHub for Windows, macOS, Linux and Android.',
     heading: 'Download',
     lead: 'The open (Personal) edition is free under the MIT license. Builds are published on this page.',
-    noBuilds: 'There are no published builds yet. They will appear here with the first public release of version {version}, together with a public mirror of the open-edition source code.',
+    noBuilds: 'There are no published builds yet. They will appear here with the first public release of version {version}. Until then, the open edition can be built from its public source code.',
     plannedTitle: 'Planned formats',
     planned: [
       'Windows: portable and NSIS installer',

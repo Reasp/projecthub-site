@@ -100,6 +100,7 @@ const icons = [
   <section class="reveal">
     <h2>{d.home.installTitle}</h2>
     <p>{d.home.installLead}</p>
+    {LINKS.sourceRepository && <p><a class="btn" href={LINKS.sourceRepository} rel="noopener">{d.footer.source} · GitHub</a></p>}
     <p class="note">{d.home.installNote}</p>
   </section>
 

@@ -21,6 +21,7 @@ const builds = RELEASES.builds ?? [];
     {builds.length === 0 ? (
       <>
         <p class="status-box">{fill(d.noBuilds, { version: VERSION })}</p>
+        {LINKS.sourceRepository && <p><a class="btn" href={LINKS.sourceRepository} rel="noopener">{t(locale).footer.source} · GitHub</a></p>}
       </>
     ) : (
       <>
