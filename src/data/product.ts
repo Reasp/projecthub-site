@@ -25,6 +25,9 @@ export interface ReleaseBuild {
   file: string;
   url: string;
   sha256: string;
+  /** Размер в байтах и архитектура — пишет publish-release.mjs источника (TASK-144.4). */
+  size?: number;
+  arch?: string;
 }
 
 export interface Releases {

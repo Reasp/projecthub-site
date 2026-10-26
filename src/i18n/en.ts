@@ -151,7 +151,8 @@ export const en = {
       'Mobile client: Android APK, then app stores'
     ],
     buildsTitle: 'Builds',
-    columns: { platform: 'Platform', format: 'Format', file: 'File', checksum: 'SHA-256' },
+    columns: { platform: 'Platform', format: 'Format', file: 'File', size: 'Size', checksum: 'SHA-256' },
+    sizeUnit: 'MB',
     published: 'Published',
     fromSource: 'Build from source',
     allReleases: 'All releases on GitHub',

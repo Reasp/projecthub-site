@@ -153,7 +153,8 @@ export const ru: Dictionary = {
       'Мобильный клиент: Android APK, затем магазины приложений'
     ],
     buildsTitle: 'Сборки',
-    columns: { platform: 'Платформа', format: 'Формат', file: 'Файл', checksum: 'SHA-256' },
+    columns: { platform: 'Платформа', format: 'Формат', file: 'Файл', size: 'Размер', checksum: 'SHA-256' },
+    sizeUnit: 'МБ',
     published: 'Опубликовано',
     fromSource: 'Сборка из исходников',
     allReleases: 'Все выпуски на GitHub',

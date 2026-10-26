@@ -32,7 +32,7 @@ const builds = RELEASES.builds ?? [];
         <div class="table-wrap">
           <table>
             <thead>
-              <tr><th>{d.columns.platform}</th><th>{d.columns.format}</th><th>{d.columns.file}</th><th>{d.columns.checksum}</th></tr>
+              <tr><th>{d.columns.platform}</th><th>{d.columns.format}</th><th>{d.columns.file}</th><th>{d.columns.size}</th><th>{d.columns.checksum}</th></tr>
             </thead>
             <tbody>
               {builds.map((build) => (
@@ -40,6 +40,7 @@ const builds = RELEASES.builds ?? [];
                   <td>{build.platform}</td>
                   <td>{build.format}</td>
                   <td><a href={build.url}>{build.file}</a></td>
+                  <td>{build.size ? `${Math.round(build.size / 1048576)} ${d.sizeUnit}` : '—'}</td>
                   <td><code>{build.sha256}</code></td>
                 </tr>
               ))}

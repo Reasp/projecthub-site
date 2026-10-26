@@ -1,8 +1,71 @@
 {
   "schema": 1,
   "edition": "open",
-  "version": "0.1.18",
-  "published": null,
-  "builds": [],
-  "note": "Placeholder: builds of the open edition are published by the releases task in the ProjectHub source (TASK-144.4). The version follows content/product/product.json."
+  "version": "0.1.49",
+  "published": "2026-10-24",
+  "builds": [
+    {
+      "platform": "Windows",
+      "format": "Installer (x64)",
+      "arch": "x64",
+      "file": "ProjectHub-Setup-0.1.49.exe",
+      "url": "https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-Setup-0.1.49.exe",
+      "size": 357021113,
+      "sha256": "029d7d582ec4a29fffbffeeff972e3e3e8a37be2ef5e890e7f7ee4d11e911427"
+    },
+    {
+      "platform": "Windows",
+      "format": "Portable (x64)",
+      "arch": "x64",
+      "file": "ProjectHub-0.1.49.exe",
+      "url": "https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49.exe",
+      "size": 473344404,
+      "sha256": "6349b80de672e2456a189f2ade6f6a14c5d7bb5f3332a87630bc275289ce6489"
+    },
+    {
+      "platform": "macOS",
+      "format": "DMG (Apple silicon)",
+      "arch": "arm64",
+      "file": "ProjectHub-0.1.49-arm64.dmg",
+      "url": "https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49-arm64.dmg",
+      "size": 412830454,
+      "sha256": "b329f9c40398f50d1422d7a5ef77ab8648ea6917ecd4653686df15d7a108aa1d"
+    },
+    {
+      "platform": "macOS",
+      "format": "DMG (Intel)",
+      "arch": "x64",
+      "file": "ProjectHub-0.1.49.dmg",
+      "url": "https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49.dmg",
+      "size": 419751863,
+      "sha256": "abcf75b0528e44077da654260bdcf45463ae85d7655d72586e7e4844564dac56"
+    },
+    {
+      "platform": "macOS",
+      "format": "ZIP (Apple silicon)",
+      "arch": "arm64",
+      "file": "ProjectHub-0.1.49-arm64-mac.zip",
+      "url": "https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49-arm64-mac.zip",
+      "size": 408744800,
+      "sha256": "723505add3c70fcf4ebb5e67777e6b859581c045eeeaf914f74e2a3845720fac"
+    },
+    {
+      "platform": "macOS",
+      "format": "ZIP (Intel)",
+      "arch": "x64",
+      "file": "ProjectHub-0.1.49-mac.zip",
+      "url": "https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49-mac.zip",
+      "size": 415673665,
+      "sha256": "3f3e96e3d147d49097b0d992c8d6b6a413115d846443359e9a9587cf6751ff87"
+    },
+    {
+      "platform": "Linux",
+      "format": "AppImage (x64)",
+      "arch": "x64",
+      "file": "ProjectHub-0.1.49.AppImage",
+      "url": "https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49.AppImage",
+      "size": 882574208,
+      "sha256": "d0cbc3e75169f9d0dd61386f02ef524a46b6775cc87fa0ed48019179b79dab07"
+    }
+  ]
 }

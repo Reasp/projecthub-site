@@ -1,0 +1,8 @@
+version: 0.1.49
+files:
+  - url: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-Setup-0.1.49.exe
+    sha512: 56wDT9TmuqPhfajnFKfvcFrlxFL7K/8RIB/QerdSepIBJ1Lp6tlU3hq81M+xhXz9l9iSREzhrLiyp9A9ZWNhFg==
+    size: 357021113
+path: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-Setup-0.1.49.exe
+sha512: 56wDT9TmuqPhfajnFKfvcFrlxFL7K/8RIB/QerdSepIBJ1Lp6tlU3hq81M+xhXz9l9iSREzhrLiyp9A9ZWNhFg==
+releaseDate: '2026-10-24T02:38:14.260Z'

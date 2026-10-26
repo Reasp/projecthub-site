@@ -1,0 +1,17 @@
+version: 0.1.49
+files:
+  - url: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49-mac.zip
+    sha512: 3NTSmSO7fUi1VmBm+VJ3O/ILpkrSZAhwHGL1ToTtj3CZtoAVP7uCqtntzkpG4bv/6lOzCaR62nKXTA6rN/wJwA==
+    size: 415673665
+  - url: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49-arm64-mac.zip
+    sha512: IgXmhf3WMi1mt9bEdOLYZx7d7vrlqAtiNNjMoLrZJWoHdmlN0zBGgyxn2vAQ9wJ/2o1dfN0f/IMlEurSZ60LyA==
+    size: 408744800
+  - url: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49.dmg
+    sha512: 7DzO2gE7IzpMWZfFHqZvCsY0taMHXjZy4FEY5Gkgjl5Ebpx4rLQiJo4hhtbVVUJFRG9jqbYf2F1WDXjmzuQxJg==
+    size: 419751863
+  - url: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49-arm64.dmg
+    sha512: M1FStqcL6OEzbJOCF7vG+YjiDksUhWtKFXp+/+wSlrpz9seZpn6kjlaCxesusV54hNsEagU5GsnPq5S3/W+gyA==
+    size: 412830454
+path: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49-mac.zip
+sha512: 3NTSmSO7fUi1VmBm+VJ3O/ILpkrSZAhwHGL1ToTtj3CZtoAVP7uCqtntzkpG4bv/6lOzCaR62nKXTA6rN/wJwA==
+releaseDate: '2026-10-24T02:38:42.880Z'

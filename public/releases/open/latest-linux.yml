@@ -1,0 +1,9 @@
+version: 0.1.49
+files:
+  - url: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49.AppImage
+    sha512: 5sainaEis7Jz5eR0aNTzIHxWOCb15prY0XKURJx63TeJ3fntDvybZdE9siqEl6i9T8si3MAU7oobX7d47no/+w==
+    size: 882574208
+    blockMapSize: 918420
+path: https://github.com/Reasp/projecthub-oss/releases/download/v0.1.49/ProjectHub-0.1.49.AppImage
+sha512: 5sainaEis7Jz5eR0aNTzIHxWOCb15prY0XKURJx63TeJ3fntDvybZdE9siqEl6i9T8si3MAU7oobX7d47no/+w==
+releaseDate: '2026-10-24T02:36:23.986Z'
