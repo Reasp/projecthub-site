@@ -112,10 +112,10 @@ const icons = [
     <p class="lead">{d.home.editionsLead}</p>
     <div class="grid">
       <div class="card"><h3>{p.personal.name}</h3><p>{p.free} · {p.mit}</p><p>{p.personal.audience}</p></div>
-      <div class="card"><h3>{p.team.name}</h3><p>{teamPriceRange()} {p.perSeatMonth}</p><p>{p.team.status}</p></div>
-      <div class="card"><h3>{p.enterprise.name}</h3><p>{p.contract}</p><p>{p.enterprise.status}</p></div>
+      <div class="card wip"><span class="stamp">{p.stampDev}</span><h3>{p.team.name}</h3><p>{teamPriceRange()} {p.perSeatMonth}</p><p>{p.team.status}</p></div>
+      <div class="card wip"><span class="stamp planned">{p.stampPlanned}</span><h3>{p.enterprise.name}</h3><p>{p.contract}</p><p>{p.enterprise.status}</p></div>
     </div>
-    <p><a href={localePath(locale, '/pricing/')}>{d.home.editionsMore}</a></p>
+    <p><a href={localePath(locale, '/pricing/')}>{d.home.editionsMore}</a> · <a href={localePath(locale, '/roadmap/')}>{d.home.roadmapMore}</a></p>
   </section>
 
   <section class="reveal">

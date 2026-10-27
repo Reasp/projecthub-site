@@ -1,0 +1,99 @@
+---
+// Дорожная карта: шкала 12 месяцев, три крупные вехи с критерием «готово», дорожка раундов. Факты — питч
+// и doc-12 из content/product/, тексты — словари. Чистый CSS, страница читается без JavaScript.
+import Site from '../layouts/Site.astro';
+import { t, localePath, fill, type Locale } from '../i18n';
+import { LINKS, VERSION } from '../data/product';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const d = t(locale).roadmap;
+// Ширина сегментов шкалы: месяцы 0–3, 3–6, 6–12.
+const spans = [3, 3, 6];
+const icons: Record<string, string> = {
+  proof: '<path d="M4 12l4 4L20 6"/><circle cx="12" cy="12" r="10" opacity=".35"/>',
+  team: '<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5M11 20c0-3 2.5-5 5-5s5 2 5 5"/>',
+  enterprise: '<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>'
+};
+---
+
+<Site locale={locale} title={d.title} description={d.description} current="roadmap">
+  <section class="hero roadmap-hero">
+    <div class="kicker">{d.kicker}</div>
+    <h1 class="gradient">{d.heading}</h1>
+    <p class="lead">{d.lead}</p>
+  </section>
+
+  <section class="rm-timeline" aria-label={d.timeline.label}>
+    <div class="rm-bar">
+      {d.milestones.map((m, i) => (
+        <div class={`rm-seg rm-${m.status}`} style={`flex:${spans[i]}`}>
+          <span class="rm-seg-num" aria-hidden="true">{i + 1}</span>
+          <span class="rm-seg-label">{m.months}</span>
+          <span class="rm-seg-title">{m.title}</span>
+          {m.status === 'now' && <span class="rm-here">{d.timeline.now}</span>}
+        </div>
+      ))}
+    </div>
+    <div class="rm-ticks" aria-hidden="true">
+      {[0, 3, 6, 9, 12].map((n) => <span style={`left:${(n / 12) * 100}%`}>{n}</span>)}
+    </div>
+  </section>
+
+  <section class="milestones">
+    {d.milestones.map((m, i) => (
+      <article class={`milestone ms-${m.status}`}>
+        <div class="ms-node" aria-hidden="true"><span>{i + 1}</span></div>
+        <header class="ms-head">
+          <div class="ms-meta">
+            <span class="ms-phase">{m.phase}</span>
+            <span class="ms-months">{m.months}</span>
+          </div>
+          <span class={`ms-status st-${m.status}`}>{d.status[m.status as keyof typeof d.status]}</span>
+        </header>
+        <div class="ms-title">
+          <span class="ms-icon"><svg viewBox="0 0 24 24" set:html={icons[m.id]} /></span>
+          <h2>{m.title}</h2>
+        </div>
+        <ul class="ms-items">{m.items.map((item) => <li>{item}</li>)}</ul>
+        {m.done.length > 0 && (
+          <div class="ms-done">
+            <span>{d.alreadyDone}</span>
+            <ul>{m.done.map((item) => <li>{item}</li>)}</ul>
+          </div>
+        )}
+        <div class="ms-gate">
+          <span>{d.doneWhen}</span>
+          <p>{m.gate}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="rounds-section">
+    <h2>{d.roundsTitle}</h2>
+    <p class="lead">{d.roundsLead}</p>
+    <div class="rounds">
+      {d.rounds.map((round) => (
+        <div class={`round rd-${round.status}`}>
+          <div class="rd-dot" aria-hidden="true"></div>
+          <span class="rd-when">{round.when}</span>
+          <h3>{round.name}</h3>
+          <span class={`ms-status st-${round.status}`}>{d.status[round.status as keyof typeof d.status]}</span>
+          <p>{round.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="support-card">
+      <div><h2>{d.ctaTitle}</h2><p class="lead">{d.ctaText}</p></div>
+      <div class="cta" style="margin-top:0">
+        <a class="btn" href={localePath(locale, '/pricing/')}>{d.ctaPilot}</a>
+        <a class="btn primary" href={LINKS.donate ?? localePath(locale, '/donate/')} rel="noopener">{d.ctaDonate}</a>
+      </div>
+    </div>
+    <p class="note" style="margin-top:1.2rem">{d.source} · v{VERSION}</p>
+  </section>
+</Site>

@@ -8,6 +8,7 @@ export const en = {
     pricing: 'Pricing',
     compare: 'Compare',
     docs: 'Docs',
+    roadmap: 'Roadmap',
     github: 'GitHub',
     support: 'Donate ♥',
     switchLanguage: 'Русский',
@@ -134,6 +135,7 @@ export const en = {
     editionsTitle: 'Editions',
     editionsLead: 'Everything one person needs is free. Paid editions start where several people, company money or compliance requirements appear.',
     editionsMore: 'Compare editions and prices',
+    roadmapMore: 'See the roadmap',
     statusTitle: 'Honest status',
     statusText: 'ProjectHub is at version {version}, pre-release. The Personal edition is nearly complete, the Team edition is in pilots, Enterprise has not started. Builds are not signed yet.'
   },
@@ -167,6 +169,8 @@ export const en = {
     free: 'Free',
     mit: 'MIT license',
     contract: 'Annual license and support, by agreement',
+    stampDev: 'In development',
+    stampPlanned: 'Planned',
     personal: {
       name: 'Personal',
       audience: 'One person and their agents: a developer, a freelancer, a founder.',
@@ -239,6 +243,76 @@ export const en = {
       'ProjectHub: Personal is free (MIT); the Team layer is in pilots; a server inside the company perimeter is an Enterprise item that has not started.'
     ],
     reviewed: 'Sources reviewed on 2026-10-16. If something here is out of date, it is corrected with the next review.'
+  },
+  roadmap: {
+    title: 'Roadmap — ProjectHub',
+    description: 'Three milestones from a free client to company-wide control of AI coding agents, each with a measurable gate, and the funding rounds behind them.',
+    kicker: 'Roadmap',
+    heading: 'From a free client to company-wide control',
+    lead: 'Three milestones over twelve months, each closed by a measurable gate rather than a date. Months count from the start of the plan.',
+    timeline: { label: 'Twelve-month plan', now: 'We are here' },
+    status: { done: 'Done', now: 'Now', next: 'Next', later: 'Later' },
+    doneWhen: 'Done when',
+    alreadyDone: 'Already done',
+    milestones: [
+      {
+        id: 'proof',
+        phase: 'Milestone 1',
+        months: 'Months 0–3',
+        title: 'Proof',
+        status: 'now',
+        items: [
+          'Public release of the free client, focus on Windows and any model',
+          'Launch in the Claude Code community, on Hacker News, Product Hunt and Reddit',
+          '5–10 design-partner teams for pilots',
+          'Before and after measurements on real teams'
+        ],
+        done: ['Open-edition installers for Windows, macOS and Linux on the releases page'],
+        gate: 'We have numbers for cost per task, cycle time and PR acceptance rate.'
+      },
+      {
+        id: 'team',
+        phase: 'Milestone 2',
+        months: 'Months 3–6',
+        title: 'Team edition',
+        status: 'next',
+        items: [
+          'Shared host: members and roles, a worktree for each person',
+          'Merge queue with checks and review by someone other than the author',
+          'Shared policies, audit and budgets',
+          'Jira sync',
+          'First paid pilots'
+        ],
+        done: [],
+        gate: 'The first companies pay for seats.'
+      },
+      {
+        id: 'enterprise',
+        phase: 'Milestone 3',
+        months: 'Months 6–12',
+        title: 'Enterprise and on-prem',
+        status: 'later',
+        items: [
+          "Deployment inside the customer's perimeter",
+          'Integration partners',
+          'Air-gapped installs for regulated industries'
+        ],
+        done: [],
+        gate: 'Annual licenses with regulated customers.'
+      }
+    ],
+    roundsTitle: 'Funding rounds',
+    roundsLead: 'ProjectHub is pre-revenue and built by one core author together with AI agents. Funding follows the gates above, not the calendar.',
+    rounds: [
+      { name: 'Pre-seed', status: 'now', when: 'Milestones 1–2', text: 'The first money for the product and the pilots, usually from angels and accelerators. It pays for the first hires: the Team edition and sales.' },
+      { name: 'Seed', status: 'later', when: 'After the pilots', text: 'Comes after users and metrics: design-partner results and the first paying teams.' },
+      { name: 'Series A', status: 'later', when: 'After Seed', text: 'The next stage once usage and revenue hold up beyond the first customers.' }
+    ],
+    ctaTitle: 'Help close milestone 1',
+    ctaText: 'Engineering teams can join the design-partner pilots of the Team edition; anyone can support the free edition with a donation.',
+    ctaPilot: 'Team edition pilots',
+    ctaDonate: 'Donate ♥',
+    source: 'Source: the ProjectHub pitch and the editions document in the product context. Plans change with the pilots; this page is updated with them.'
   },
   docs: {
     title: 'Documentation',

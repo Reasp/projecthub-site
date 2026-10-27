@@ -3,12 +3,13 @@
 import { t, localePath, alternatePath, LOCALES, type Locale } from '../i18n';
 import { LINKS, RELEASES_URL, VERSION } from '../data/product';
 import '../styles/global.css';
+import '../styles/roadmap.css';
 
 interface Props {
   locale: Locale;
   title: string;
   description: string;
-  current: 'home' | 'download' | 'pricing' | 'compare' | 'donate';
+  current: 'home' | 'download' | 'pricing' | 'compare' | 'roadmap' | 'donate';
 }
 
 const { locale, title, description, current } = Astro.props;
@@ -21,6 +22,7 @@ const nav: Array<{ key: Props['current'] | 'docs'; href: string; label: string }
   { key: 'download', href: localePath(locale, '/download/'), label: d.nav.download },
   { key: 'pricing', href: localePath(locale, '/pricing/'), label: d.nav.pricing },
   { key: 'compare', href: localePath(locale, '/compare/'), label: d.nav.compare },
+  { key: 'roadmap', href: localePath(locale, '/roadmap/'), label: d.nav.roadmap },
   { key: 'docs', href: localePath(locale, '/docs/'), label: d.nav.docs },
   { key: 'donate', href: localePath(locale, '/donate/'), label: d.nav.support }
 ];

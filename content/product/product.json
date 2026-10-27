@@ -2,7 +2,7 @@
   "schema": 1,
   "name": "ProjectHub",
   "tagline": "Agentic Development Environment: a control room for AI coding agents",
-  "version": "0.1.38",
+  "version": "0.1.59",
   "languages": [
     "en",
     "ru"

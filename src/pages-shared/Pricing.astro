@@ -1,11 +1,12 @@
 ---
 import Site from '../layouts/Site.astro';
-import { t, type Locale } from '../i18n';
+import { t, localePath, type Locale } from '../i18n';
 import { teamPriceRange } from '../data/product';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const d = t(locale).pricing;
+const r = t(locale).home;
 ---
 
 <Site locale={locale} title={d.title} description={d.description} current="pricing">
@@ -25,7 +26,8 @@ const d = t(locale).pricing;
       <ul>{d.personal.neverPaid.map((item) => <li>{item}</li>)}</ul>
     </article>
 
-    <article class="plan featured">
+    <article class="plan wip">
+      <span class="stamp" aria-label={d.stampDev}>{d.stampDev}</span>
       <h2>{d.team.name}</h2>
       <div class="price">{teamPriceRange()}<small>{d.perSeatMonth}</small></div>
       <span class="badge-pill">{d.team.status}</span>
@@ -33,7 +35,8 @@ const d = t(locale).pricing;
       <ul>{d.team.includes.map((item) => <li>{item}</li>)}</ul>
     </article>
 
-    <article class="plan">
+    <article class="plan wip">
+      <span class="stamp planned" aria-label={d.stampPlanned}>{d.stampPlanned}</span>
       <h2>{d.enterprise.name}</h2>
       <div class="price"><small>{d.contract}</small></div>
       <span class="badge-pill">{d.enterprise.status}</span>
@@ -44,5 +47,6 @@ const d = t(locale).pricing;
 
   <section>
     <p class="note">{d.note}</p>
+    <p><a href={localePath(locale, '/roadmap/')}>{r.roadmapMore} →</a></p>
   </section>
 </Site>
