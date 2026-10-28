@@ -2,7 +2,7 @@
   "schema": 1,
   "name": "ProjectHub",
   "tagline": "Agentic Development Environment: a control room for AI coding agents",
-  "version": "0.1.59",
+  "version": "0.1.86",
   "languages": [
     "en",
     "ru"
@@ -68,18 +68,6 @@
     "assets/task-180/180-phone-before.png",
     "assets/tier-enterprise.png",
     "assets/tier-personal.png",
-    "assets/tier-team.png",
-    "decision-123.md",
-    "decision-158.md",
-    "decision-159.md",
-    "decision-85.md",
-    "decision-86.md",
-    "doc-12.md",
-    "pitch/ProjectHub-pitch-en.pdf",
-    "pitch/ProjectHub-pitch.pdf",
-    "pitch/ProjectHub-research-en.pdf",
-    "pitch/ProjectHub-research.pdf",
-    "pitch/linkedin-post-en.txt",
-    "pitch/linkedin-post.md"
+    "assets/tier-team.png"
   ]
 }
