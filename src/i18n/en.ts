@@ -82,8 +82,8 @@ export const en = {
     team: {
       title: 'Team',
       subtitle: 'A shared host, one set of rules',
-      nodes: { host: 'Shared host · ph-agent', members: ['Anna · owner', 'Max · member', 'Lee · member'], worktrees: 'a worktree per person', queue: 'Merge queue', checks: 'checks · review by another person', budgets: 'Budgets · SSO · audit per person', main: 'main' },
-      caption: 'Each member works in their own branch with their own agents; finished work goes through a merge queue with checks and review. Budgets, SSO and the audit log cover the whole team.'
+      nodes: { host: 'Shared host · ph-agent', members: ['Anna · owner', 'Max · member', 'Lee · member'], worktrees: 'a worktree per person', queue: 'Merge queue', checks: 'checks · review by another person', budgets: 'Budgets · SSO · audit per person', main: 'main', chat: 'Team chat · people and agents' },
+      caption: 'Each member works in their own branch with their own agents; finished work goes through a merge queue with checks and review. The team and its agents talk in a built-in chat on the same host. Budgets, SSO and the audit log cover the whole team.'
     },
     enterprise: {
       title: 'Enterprise',
@@ -201,6 +201,7 @@ export const en = {
         'SSO and shared rules for roles, audit per person with export',
         'Budgets and limits per person, project, agent and task; stop on overrun; a report for finance',
         'Value reports: cost per task, cycle time, share of accepted agent results, model comparison',
+        'Corporate chat: team and project channels, a thread for every task, direct messages; agents post to their task thread and approval requests are answered right there; the history stays on the shared host',
         'Integrations: Jira, Linear, ClickUp; team chats; PRs and CI'
       ]
     },
@@ -210,7 +211,7 @@ export const en = {
       status: 'Not started: begins after the first paid pilots',
       includes: [
         'Deployment inside your perimeter, including air-gapped; your own relay and push gateway; local and internal models only',
-        'Audit storage and export, SIEM integration, rules as versioned code',
+        'Storage and export of audit and corporate chat history, SIEM integration, rules as versioned code',
         'SOC 2',
         'Isolation of untrusted members: separate OS users or containers',
         'Support: SLA, onboarding help, team training'
@@ -234,6 +235,7 @@ export const en = {
       { feature: 'Cost tracked per task', projecthub: 'yes', orca: 'none', conductor: 'none', vibeKanban: 'none' },
       { feature: 'Any agent and model, including local models', projecthub: 'yes', orca: 'none', conductor: 'none', vibeKanban: 'none' },
       { feature: 'Team layer: roles, budgets, merge queue, SSO', projecthub: 'pilots', orca: 'notListed', conductor: 'none', vibeKanban: 'none' },
+      { feature: 'Built-in team chat where agents post and approvals are answered', projecthub: 'planned', orca: 'none', conductor: 'none', vibeKanban: 'none' },
       { feature: 'Self-hosted server inside the company network', projecthub: 'planned', orca: 'yes', conductor: 'none', vibeKanban: 'none' },
       { feature: 'Published prices', projecthub: 'yes', orca: 'no', conductor: 'none', vibeKanban: 'none' }
     ],
@@ -280,6 +282,7 @@ export const en = {
           'Shared host: members and roles, a worktree for each person',
           'Merge queue with checks and review by someone other than the author',
           'Shared policies, audit and budgets',
+          'Corporate chat for people and agents on the shared host',
           'Jira sync',
           'First paid pilots'
         ],

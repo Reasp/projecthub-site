@@ -37,12 +37,14 @@ const teamNodes: Node[] = [
   { id: 'queue', x: 570, y: 110, w: 170, h: 64, label: s.team.nodes.queue, kind: 'warn' },
   { id: 'main', x: 820, y: 118, w: 110, h: 48, label: s.team.nodes.main, kind: 'soft' },
   { id: 'budgets', x: 260, y: 240, w: 250, h: 44, label: s.team.nodes.budgets, kind: 'dash' },
-  { id: 'checks', x: 520, y: 230, w: 290, h: 44, label: s.team.nodes.checks, kind: 'dash' }
+  { id: 'checks', x: 520, y: 230, w: 290, h: 44, label: s.team.nodes.checks, kind: 'dash' },
+  { id: 'chat', x: 270, y: 14, w: 240, h: 44, label: s.team.nodes.chat, kind: 'dash' }
 ];
 const teamEdges: Edge[] = [
   { from: 'm1', to: 'host', label: s.team.nodes.worktrees }, { from: 'm2', to: 'host' }, { from: 'm3', to: 'host' },
   { from: 'host', to: 'queue' }, { from: 'queue', to: 'main' },
-  { from: 'host', to: 'budgets', dashed: true }, { from: 'queue', to: 'checks', dashed: true }
+  { from: 'host', to: 'budgets', dashed: true }, { from: 'queue', to: 'checks', dashed: true },
+  { from: 'host', to: 'chat', dashed: true }
 ];
 
 const enterpriseNodes: Node[] = [
